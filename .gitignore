@@ -1,0 +1,16 @@
+# Go
+/cli/dist/
+/cli/ct-radar
+/cli/*.exe
+
+# Python
+/python-cli/dist/
+/python-cli/build/
+/python-cli/*.egg-info/
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
