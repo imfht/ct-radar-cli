@@ -1,9 +1,12 @@
 name: Release Go CLI
 
+# Tag scheme:
+#   v0.1.1, v0.2.0 ...     → Go CLI release  (this workflow, plain semver for goreleaser)
+#   py-v0.1.1, py-v0.2.0 ... → Python CLI release (release-python-cli.yml)
 on:
   push:
     tags:
-      - 'cli-v*'
+      - 'v*'
 
 permissions:
   contents: write
@@ -28,6 +31,3 @@ jobs:
           workdir: ./cli
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # 锁定 goreleaser 的 tag 解析。否则它走 git describe 选字典序最大的 tag,
-          # 同 commit 上有 pycli-v0.1.0 时会爆 "failed to parse tag as semver"。
-          GORELEASER_CURRENT_TAG: ${{ github.ref_name }}

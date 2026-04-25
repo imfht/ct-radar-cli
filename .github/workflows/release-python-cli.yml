@@ -3,7 +3,7 @@ name: Release Python CLI
 on:
   push:
     tags:
-      - 'pycli-v*'
+      - 'py-v*'
 
 jobs:
   build-and-publish:
